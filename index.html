@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script src="https://kit.fontawesome.com/1acc79af87.js" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="movies.css">
     <script src="index.js"defer></script>
     <title>Movieapi</title>
@@ -12,9 +14,13 @@
         <option value="" disabled selected>Sort </option>
         <option value="LOW_TO_HIGH">Search, Low to High</option>
         <option value="HIGH_TO_LOW">Search, High to Low</option>
-        <option value="YEAR">Year</option>
+        <option value="YEAR--LOW">Year, Low to High</option>
+        <option value="YEAR--HIGH">Year, High to Low</option>
         </select>
-  
+  <div class="movies movies__loading">
+                <i class="fas fa-spinner movies__loading--spinner"></i>
+
+  </div>
     <div class="container">
     <div class="row">
       <div class="user-list">
@@ -22,12 +28,7 @@
         <div class="user">
           <div class="user-card">
             
-            <div class="user-card__container">
-              <h3>Movie Title</h3>
-              <p><b>Year</b> 2020</p>
-              <p><b>imdbID</b> 0000000000</p>
-              <p><b>Poster</b> <a href="https://website.website" target="_blank">Movie Poster</a></p>
-            </div>
+       
           </div>
         </div>
       </div>
