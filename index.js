@@ -1,9 +1,22 @@
 // http://www.omdbapi.com/?i=tt3896198&apikey=1989ac72
- async function movieAPI() {
+ async function movieAPI(filter) {
     const web = await fetch("http://www.omdbapi.com/?apikey=1989ac72&s=super")
     const movie = (await web.json())
     console.log (movie)
     console.log (movie.Search)
+    
+    if (filter === "LOW_TO_HIGH") {
+        movie.Search.sort((a, b) => a.Title.localeCompare(b.Title))
+    }
+    if (filter === "HIGH_TO_LOW") {
+        movie.Search.sort((a, b) => b.Title.localeCompare(a.Title))
+    }
+    if (filter === "LOW_TO_HIGH") {
+        movie.Search.sort((a, b) => a.Year.localeCompare(b.Year))
+    }
+    if (filter === "HIGH_TO_LOW") {
+        movie.Search.sort((a, b) => b.Year.localeCompare(a.Year))
+    }
     const movieList = document.querySelector(".user-list")
          const movieCard = await (movie.Search)
      movieList.innerHTML = 
@@ -22,3 +35,9 @@
     
     
 movieAPI()
+
+
+function movieFilter(event) {
+    movieAPI(event.target.value);
+
+}

@@ -8,16 +8,25 @@
     <title>Movieapi</title>
 </head>
 <body>
+        <select id="filter" onchange="movieFilter(event)" class="filter"> 
+        <option value="" disabled selected>Sort </option>
+        <option value="LOW_TO_HIGH">Search, Low to High</option>
+        <option value="HIGH_TO_LOW">Search, High to Low</option>
+        <option value="YEAR">Year</option>
+        </select>
+  
     <div class="container">
     <div class="row">
       <div class="user-list">
+        
         <div class="user">
           <div class="user-card">
+            
             <div class="user-card__container">
               <h3>Movie Title</h3>
-                <p><b>Year</b> 2020</p>
-                <p><b>imdbID</b> 0000000000</p>
-                <p><b>Poster</b> <a href="https://website.website" target="_blank">Movie Poster</a></p>
+              <p><b>Year</b> 2020</p>
+              <p><b>imdbID</b> 0000000000</p>
+              <p><b>Poster</b> <a href="https://website.website" target="_blank">Movie Poster</a></p>
             </div>
           </div>
         </div>
