@@ -1,15 +1,15 @@
 // http://www.omdbapi.com/?apikey=1989ac72&s=super
 let movies;
-const movieWrapper = document.querySelector(".movies");
 async function movieAPI(filter) {
+  const movieWrapper = document.querySelector(".movies");
   movieWrapper.classList = " movies__loading";
   if (!movies) {
-    const web = await fetch("http://www.omdbapi.com/?apikey=1989ac72&s=super");
+    const web = await fetch("https://www.omdbapi.com/?apikey=1989ac72&s=super");
     movies = await web.json();
   }
   movieWrapper.classList.remove("movies__loading");
 
-  const web = await fetch("http://www.omdbapi.com/?apikey=1989ac72&s=super");
+  const web = await fetch("https://www.omdbapi.com/?apikey=1989ac72&s=super");
   const movie = await web.json();
 
   if (filter === "LOW_TO_HIGH") {
