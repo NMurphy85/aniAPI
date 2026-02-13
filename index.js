@@ -1,19 +1,18 @@
-// http://www.omdbapi.com/?i=tt3896198&apikey=1989ac72
+// http://www.omdbapi.com/?apikey=1989ac72&s=super
 let movies
-async function movieAPI(filter) {
 const movieWrapper = document.querySelector('.movies')
-  
-movieWrapper.classList += ' movies__loading' 
-if (!movies) {
-movies =  await getMovie()
-}
-movieWrapper.classList.remove('movies__loading')
-
-
-
+async function movieAPI(filter) {
+    movieWrapper.classList = " movies__loading"
+    if (!movies){
+        const web = await fetch("http://www.omdbapi.com/?apikey=1989ac72&s=super")
+        movies = await web.json()
+    }
+    movieWrapper.classList.remove("movies__loading")
+    
     const web = await fetch("http://www.omdbapi.com/?apikey=1989ac72&s=super")
     const movie = (await web.json())
-  
+    
+    
     
     
     if (filter === "LOW_TO_HIGH") {
@@ -42,16 +41,17 @@ movieWrapper.classList.remove('movies__loading')
             </div>`
 
         }).join("")
+        
     } 
     
     
-movieAPI()
 
 
 function movieFilter(event) {
     movieAPI(event.target.value);
 
 }
+
 
 setTimeout(() => {
     movieAPI();
@@ -64,3 +64,4 @@ function getMovie(){
         }, 1000)
 }
 )}
+getMovie()

@@ -146,11 +146,11 @@ select {
 }
 
 .movies__loading--spinner{
- display: none !important;
+ display: none !important
 }
 
 .movies__loading .movies__loading--spinner{
-display: block !important;
+display: block !important
 }
  
 
