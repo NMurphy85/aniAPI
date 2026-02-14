@@ -33,7 +33,7 @@ async function movieAPI(filter) {
                 <h3>${movie.Title}</h3>
                 <p><b>Year</b> ${movie.Year}</p>
                 <p><b>imdbID</b> ${movie.imdbID}</p>
-                <p><b>Poster</b> <a href="${movie.Poster}" target="_blank">Movie Poster</a></p>
+                <p><img src="${movie.Poster}"/></p>
             </div>
             </div>`;
     })
