@@ -2,7 +2,7 @@
 let movies;
 async function movieAPI(filter) {
   const movieWrapper = document.querySelector(".movies");
-  movieWrapper.classList = " movies__loading";
+  movieWrapper.classList += " movies__loading";
   if (!movies) {
     const web = await fetch("https://www.omdbapi.com/?apikey=1989ac72&s=super");
     movies = await web.json();
