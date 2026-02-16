@@ -29,8 +29,24 @@
       </nav>
       </section>
       <section id="Movies">
-      <div class="container">
-        <h2 class="movies__title">Super Movies</h2>
+        <div class="container">
+          
+     <form 
+     class="search-form" 
+     id="searchForm">
+      <input c
+      lass="search-form__input" 
+      type="text" 
+      id="searchInput" 
+      placeholder="Search movies..." required="">
+      <button class="search-form__button" 
+      type="submit">Search</button>
+    </form>
+            <div>
+          
+            </div>
+            </div>
+        </div>
       <select id="filter" onchange="movieFilter(event)" class="filter">
         <option value="" disabled selected>Sort</option>
         <option value="LOW_TO_HIGH">Search, Low to High</option>

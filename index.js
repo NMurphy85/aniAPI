@@ -1,15 +1,17 @@
 // http://www.omdbapi.com/?apikey=1989ac72&s=super
 let movies;
+const API_KEY = '1989ac72';
 async function movieAPI(filter) {
+   const searchTerm = searchInput.value.trim();
   const movieWrapper = document.querySelector(".movies");
   movieWrapper.classList += " movies__loading";
   if (!movies) {
-    const web = await fetch("https://www.omdbapi.com/?apikey=1989ac72&s=super");
+    const web = await fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&s=${searchTerm}`);
     movies = await web.json();
   }
   movieWrapper.classList.remove("movies__loading");
 
-  const web = await fetch("https://www.omdbapi.com/?apikey=1989ac72&s=super");
+  const web = await fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&s=${searchTerm}`);
   const movie = await web.json();
 
   if (filter === "LOW_TO_HIGH") {
@@ -24,6 +26,7 @@ async function movieAPI(filter) {
   if (filter === "YEAR--HIGH") {
     movie.Search.sort((a, b) => b.Year.localeCompare(a.Year));
   }
+
   const movieList = document.querySelector(".user-list");
   const movieCard = await movie.Search;
   movieList.innerHTML = movieCard
@@ -56,3 +59,12 @@ function getMovie() {
   });
 }
 getMovie();
+
+
+
+
+/*
+ SEARCH BAR
+
+
+ */
