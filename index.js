@@ -1,21 +1,25 @@
 // http://www.omdbapi.com/?apikey=1989ac72&s=super
 let movies;
-const API_KEY = '1989ac72';
+const API_KEY = "1989ac72";
 async function movieAPI(filter) {
-   const searchTerm = searchInput.value.trim();
+  const searchTerm = searchInput.value.trim() || "super";
   const movieWrapper = document.querySelector(".movies");
   movieWrapper.classList += " movies__loading";
   if (!movies) {
-    const web = await fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&s=${searchTerm}`);
+    const web = await fetch(
+      `https://www.omdbapi.com/?apikey=${API_KEY}&s=${searchTerm}`,
+    );
     movies = await web.json();
   }
   movieWrapper.classList.remove("movies__loading");
 
-  const web = await fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&s=${searchTerm}`);
+  const web = await fetch(
+    `https://www.omdbapi.com/?apikey=${API_KEY}&s=${searchTerm}`,
+  );
   const movie = await web.json();
 
   const movieList = document.querySelector(".user-list");
-  
+
   // Check if movie.Search exists and has results
   if (!movie.Search) {
     movieList.innerHTML = `<div class="user-card"><p>No movies found. Try a different search term!</p></div>`;
@@ -37,7 +41,7 @@ async function movieAPI(filter) {
   }
 
   const movieCard = movie.Search;
-  
+
   movieList.innerHTML = movieCard
     .map((movie) => {
       return `<div class="user-card">
@@ -56,10 +60,6 @@ function movieFilter(event) {
   movieAPI(event.target.value);
 }
 
-setTimeout(() => {
-  movieAPI();
-});
-
 function getMovie() {
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -73,8 +73,8 @@ getMovie();
  SEARCH BAR
  */
 
-const searchForm = document.getElementById('searchForm');
-searchForm.addEventListener('submit', function(event) {
+const searchForm = document.getElementById("searchForm");
+searchForm.addEventListener("submit", function (event) {
   event.preventDefault(); // Prevent page refresh
   movieAPI(); // Call the API with the search term
 });

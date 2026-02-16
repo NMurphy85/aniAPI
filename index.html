@@ -38,7 +38,7 @@
       class="search-form__input" 
       type="text" 
       id="searchInput" 
-      placeholder="Search movies..." ="">
+      placeholder="Search movies..." required="">
       <button class="search-form__button" 
       type="submit">Search</button>
     </form>
@@ -47,12 +47,13 @@
             </div>
             </div>
         </div>
-      <select id="filter" onchange="movieFilter(event)" class="filter">
-        <option value="" disabled selected>Sort</option>
-        <option value="LOW_TO_HIGH">Search, Low to High</option>
-        <option value="HIGH_TO_LOW">Search, High to Low</option>
-        <option value="YEAR--LOW">Year, Low to High</option>
-        <option value="YEAR--HIGH">Year, High to Low</option>
+        <div class="filter__wrap">
+      <select id="filter" onchange="movieFilter(event)" class="filter filter--bold">
+        <option class="filter--bold" value="" disabled selected>Sort</option>
+        <option class="filter--bold" value="LOW_TO_HIGH">Search, Low to High</option>
+        <option class="filter--bold" value="HIGH_TO_LOW">Search, High to Low</option>
+        <option class="filter--bold" value="YEAR--LOW">Year, Low to High</option>
+        <option class="filter--bold" value="YEAR--HIGH">Year, High to Low</option>
       </select>
       </div>
     <div class="movies">
